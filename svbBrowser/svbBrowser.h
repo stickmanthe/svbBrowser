@@ -20,6 +20,7 @@
 #include <wx/wx.h>
 #include <curl/curl.h>
 #include <string>
+#include <windows.h>
 
 class MyApp : public wxApp
 {
@@ -63,7 +64,7 @@ protected:
 	wxToolBarToolBase* m_tool311;
 
 
-	// Ôóíêöèÿ ïðè ïîäòâðåæäåíèè ïîÿâëåíèÿ íîâîãî âåá-àäðåñà
+	// Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ Ð¿Ñ€Ð¸ Ð¿Ð¾Ð´Ñ‚Ð²Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ð¸ Ð¿Ð¾ÑÐ²Ð»ÐµÐ½Ð¸Ñ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð²ÐµÐ±-Ð°Ð´Ñ€ÐµÑÐ°
 	virtual void newAdress(wxCommandEvent& event)
 	{
 		laterAdress = m_textCtrl1->GetValue().ToStdString();
@@ -112,7 +113,7 @@ protected:
 		}
 	}
 
-	// Ôóíêöèÿ ïðè íàæàòèè íà ññûëêó ÷òî âåäåò íà íîâûé âåá-àäðåñ
+	// Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ Ð¿Ñ€Ð¸ Ð½Ð°Ð¶Ð°Ñ‚Ð¸Ð¸ Ð½Ð° ÑÑÑ‹Ð»ÐºÑƒ Ñ‡Ñ‚Ð¾ Ð²ÐµÐ´ÐµÑ‚ Ð½Ð° Ð½Ð¾Ð²Ñ‹Ð¹ Ð²ÐµÐ±-Ð°Ð´Ñ€ÐµÑ
 	virtual void linkClick(wxHtmlLinkEvent& event)
 	{
 		laterAdress = m_textCtrl1->GetValue().ToStdString();
@@ -160,7 +161,7 @@ protected:
 		m_notebook1->SetPageText(0, m_htmlWin3->GetOpenedPageTitle());
 	}
 
-	// Ôóíêöèÿ ïðè ïîäòâåðæäåíèè âîçâðàùåíèÿ íà ïðîøëóþ ñòðàíèöó
+	// Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ Ð¿Ñ€Ð¸ Ð¿Ð¾Ð´Ñ‚Ð²ÐµÑ€Ð¶Ð´ÐµÐ½Ð¸Ð¸ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ñ Ð½Ð° Ð¿Ñ€Ð¾ÑˆÐ»ÑƒÑŽ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñƒ
 	virtual void backToPage(wxCommandEvent& event)
 	{
 		m_textCtrl1->SetValue(laterAdress);
@@ -209,7 +210,7 @@ protected:
 		}
 	}
 
-	// Ôóíêöèÿ ïðè ïîäòâåðæäåíèè ïåðåçàãðóçêè ñòðàíèöû
+	// Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ Ð¿Ñ€Ð¸ Ð¿Ð¾Ð´Ñ‚Ð²ÐµÑ€Ð¶Ð´ÐµÐ½Ð¸Ð¸ Ð¿ÐµÑ€ÐµÐ·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹
 	virtual void refreshPage(wxCommandEvent& event)
 	{
 		std::string webAdress = m_textCtrl1->GetValue().ToStdString();
@@ -257,7 +258,7 @@ protected:
 		}
 	}
 
-	// Ôóíêöèÿ ïðè ïîäòâåðæäåíèè íîâîãî ïîèñêîâîãî çàïðîñà
+	// Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ Ð¿Ñ€Ð¸ Ð¿Ð¾Ð´Ñ‚Ð²ÐµÑ€Ð¶Ð´ÐµÐ½Ð¸Ð¸ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ¾Ð²Ð¾Ð³Ð¾ Ð·Ð°Ð¿Ñ€Ð¾ÑÐ°
 	virtual void mkSearch(wxCommandEvent& event)
 	{
 		std::string webAdress = "https://wiby.me/?q=" + m_textCtrl11->GetValue().ToStdString();
@@ -302,12 +303,9 @@ protected:
 	public:
 
 		MyFrame1(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("svbBrowser"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(1213, 705), long style = wxDEFAULT_FRAME_STYLE | wxTAB_TRAVERSAL);
-
 		~MyFrame1();
 
 		std::string laterAdress = "Web-adress...";
-
-
 };
 
 
