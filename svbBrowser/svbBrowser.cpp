@@ -1,5 +1,4 @@
 #include "svbBrowser.h"
-#include <Windows.h>
 
 IMPLEMENT_APP(MyApp)
 
@@ -17,9 +16,9 @@ bool MyApp::OnInit()
 
 MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
+	this->SetIcon(wxIcon(wxT("webbrowser.xpm"), wxBITMAP_TYPE_XPM));
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	this->DragAcceptFiles( true );
-	wxIcon* icon = new wxIcon("webbrowser.xpm");
 
 	m_statusBar1 = this->CreateStatusBar( 1, wxSTB_SIZEGRIP, wxID_ANY );
 	wxBoxSizer* bSizer2;
