@@ -35,11 +35,6 @@ class MyFrame1 : public wxFrame
 {
 private:
 
-	//void OnClick(wxSizeEvent& event)
-	//{
-	//	puts("Click click epta");
-	//}
-
 protected:
 	wxStatusBar* m_statusBar1;
 	wxNotebook* m_notebook1;
@@ -64,7 +59,6 @@ protected:
 	wxToolBarToolBase* m_tool311;
 
 
-	// Функция при подтвреждении появления нового веб-адреса
 	virtual void newAdress(wxCommandEvent& event)
 	{
 		laterAdress = m_textCtrl1->GetValue().ToStdString();
@@ -113,7 +107,6 @@ protected:
 		}
 	}
 
-	// Функция при нажатии на ссылку что ведет на новый веб-адрес
 	virtual void linkClick(wxHtmlLinkEvent& event)
 	{
 		laterAdress = m_textCtrl1->GetValue().ToStdString();
@@ -161,7 +154,6 @@ protected:
 		m_notebook1->SetPageText(0, m_htmlWin3->GetOpenedPageTitle());
 	}
 
-	// Функция при подтверждении возвращения на прошлую страницу
 	virtual void backToPage(wxCommandEvent& event)
 	{
 		m_textCtrl1->SetValue(laterAdress);
@@ -210,7 +202,6 @@ protected:
 		}
 	}
 
-	// Функция при подтверждении перезагрузки страницы
 	virtual void refreshPage(wxCommandEvent& event)
 	{
 		std::string webAdress = m_textCtrl1->GetValue().ToStdString();
@@ -258,7 +249,6 @@ protected:
 		}
 	}
 
-	// Функция при подтверждении нового поискового запроса
 	virtual void mkSearch(wxCommandEvent& event)
 	{
 		std::string webAdress = "https://wiby.me/?q=" + m_textCtrl11->GetValue().ToStdString();
